@@ -1,0 +1,58 @@
+<html html!>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Єфіменко WiShLisT</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel = "Stylesheet" href = "css/todo.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">
+        <link rel = "shortcut icon" href="assets/favicon.ico">
+        <link rel="icon" type="image/gif" href="assests/animated_favicon1.gif" >
+     </head>
+
+    <body>
+        <a id="fileDownload" href = ""></a>
+        <div id = "todo">
+            <h1>MY WiShLisT<i id="pencil" class="fas fa-pencil-alt"></i>  <i id="saveImage" style = "float:right;margin:8px 5px" class="fas fa-save"></i></h1>
+            <input type = "text" placeholder="Додати побажання">
+
+            <ul class="todos">
+                
+                <li><span><i class="fas fa-trash-alt"></i></span>Додайте нові побажання</li>
+            </ul>
+
+            <div id= "buttons">
+                <button class="save">Зберегти</button>
+                <button class="clear">Очистити</button>
+                <button class="tipBtn">Порада</button>
+            </div>
+        </div>
+
+        <div id = "overlay">
+           <a href="javascript:void(0)" class="closebtn">&times;</a>
+           <ul class="tips">
+               <li>Натисніть на олівець, щоб приховати або показати область введення.</li>
+               <br><li>Введіть текст в область введення і натисніть клавішу Enter, щоб додати в список бажання подарунків.</li>
+               <br><li>Наведіть курсор на бажання про подарунок і натисніть на кошик, щоб видалити.</li>
+               <br><li>Натисніть кнопку Очистити, щоб видалити всі завдання зі списку.</li>
+               <br><li>Натисніть кнопку Зберегти, щоб зберегти ваші бажання подарунків, щоб отримати до них доступ пізніше, навіть якщо ви вийдете з браузера.</li>
+            </ul>
+            
+        </div>
+        <script src="Js/todo2.js"></script>
+        <script src = "Js/html2canvas.min.js"></script>
+        <script type = "text/javascript">
+            const saveImage = document.querySelector('#saveImage');
+            saveImage.addEventListener('click',() => {
+                html2canvas(document.body).then(function(canvas) {
+                    let download = document.querySelector('#fileDownload');
+                    download.setAttribute("href", canvas.toDataURL("image/png"));
+                    download.setAttribute("download", "wishlist");
+                    download.click();
+                });
+            })
+
+        </script>
+    </body>
+</html>
